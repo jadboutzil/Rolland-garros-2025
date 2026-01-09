@@ -18,7 +18,7 @@ The final output is an enriched JSON file where each frame is labeled as:
 
 ```json
 "pred_action": "air" | "hit" | "bounce"
-
+```
 
 ## Dataset Description
 ### Ball Tracking Data
@@ -30,7 +30,7 @@ per_point_v2/
  ├── ball_data_1.json
  ├── ...
  └── ball_data_328.json
-
+```
 
 Each JSON maps video frame numbers to ball information:
 
@@ -43,7 +43,7 @@ Each JSON maps video frame numbers to ball information:
     "action": "air"
   }
 }
-
+```
 
 ## Fields
 
@@ -97,7 +97,7 @@ Raw ball tracking contains long invisible periods:
 
 ```text
 max_invisible_run = 137   (~2.7 seconds at 50 FPS)
-
+```
 
 This ensures:
 
@@ -178,7 +178,7 @@ The task is modeled as a time-series classification problem.
 
 ```text
 Frames: [t-W+1 ... t]  →  predict label at t+1
-
+``` 
 This formulation:
 
 - is causal
@@ -205,7 +205,7 @@ This formulation:
 
 ```text
 Input → BiLSTM → Fully Connected → Softmax
-
+``` 
 ### Train / Test Split (Critical)
 
 ⚠️ The split is performed at the POINT level, not frame or window level.
@@ -230,7 +230,7 @@ The LSTM produces dense frame-level predictions, for example:
 
 ```text
 hit hit hit hit hit
-
+```
 But the objective is to detect single events.
 
 ### Consolidation Rules
@@ -261,7 +261,7 @@ Instead, evaluation is performed at the event level, using a tolerance window:
 
 ```text
 Prediction is correct if |pred_frame - gt_frame| ≤ tolerance
-
+```
 ### Example Results 
 
 **Epoch:** 10 / 10  
@@ -352,7 +352,7 @@ Each frame in the JSON file is enriched with a predicted action:
     "pred_action": "bounce"
   }
 }
-
+```
 This output can be:
 
 - visualized with trajectory overlays
@@ -402,4 +402,5 @@ Use the `load_lstm_model()` function
 Developed by [BOUTZIL Jad]
 Machine Learning / Computer Vision Project
 Roland-Garros 2025 — Ball Tracking Analysis
+
 
