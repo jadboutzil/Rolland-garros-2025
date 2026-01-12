@@ -77,7 +77,7 @@ Each JSON maps video frame numbers to ball information:
 
 ### Example : Ball trajectory in one point
 
-![Ball x/y time series](plots/output.png)
+![Ball x/y time series](Test_QSA/plots/output.png)
 
 ### Step 1 — Segmentation by Visibility
 
@@ -105,7 +105,7 @@ This ensures:
 
 - long dead periods are removed
 
-![Invisible run histogram](plots/output2.png)
+![Invisible run histogram](Test_QSA/plots/output2.png)
 
 ### Step 2 — Feature Engineering (Physics-Based)
 
@@ -134,9 +134,9 @@ For each segment, the following features are computed per frame.
 - **`y_norm`** — normalized height within the segment
 
 - **`visible`** flag
-![x-y trajectory](plots/output3.png)
+![x-y trajectory](Test_QSA/plots/output3.png)
 
-![Speed Evolution timeseriec ](plots/output4.png)
+![Speed Evolution timeseriec ](Test_QSA/plots/output4.png)
 
 
 These features encode:
@@ -398,7 +398,7 @@ Use the `load_lstm_model()` function
 ---
 
 ### Author
-
+```text
 Developed by [BOUTZIL Jad]
 Machine Learning / Computer Vision Project
 Roland-Garros 2025 — Ball Tracking Analysis
